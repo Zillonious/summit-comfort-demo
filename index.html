@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summit Comfort Heating & Cooling — Saratoga Springs HVAC</title>
+<meta name="description" content="Fast, honest HVAC repair, installation, and maintenance in Saratoga Springs, NY. Same-day service. 24/7 emergencies. Family-owned for 12 years.">
+<style>
+  :root{
+    --ink:#10202b;        /* deep slate */
+    --frost:#f4f7f9;      /* cool off-white */
+    --ember:#e8643c;      /* warm ember — the "comfort" accent */
+    --ember-dk:#c44e2b;
+    --steel:#2b6b8f;      /* cool steel blue */
+    --steel-dk:#1d4d68;
+    --line:#d9e2e8;
+    --muted:#5b6b75;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    color:var(--ink);background:#fff;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:Georgia,'Times New Roman',serif;line-height:1.12;letter-spacing:-.01em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+
+  /* ---- top utility bar ---- */
+  .topbar{background:var(--ink);color:#cdd9e0;font-size:.82rem}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px;flex-wrap:wrap}
+  .topbar strong{color:#fff}
+  .topbar .lic{letter-spacing:.04em;text-transform:uppercase;font-size:.72rem;opacity:.8}
+
+  /* ---- sticky header ---- */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);
+    backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .logo{display:flex;align-items:center;gap:12px;font-family:Georgia,serif;font-weight:700;font-size:1.28rem}
+  .logo .mark{width:40px;height:40px;border-radius:9px;flex:none;
+    background:linear-gradient(135deg,var(--steel),var(--ember));
+    display:grid;place-items:center;color:#fff;font-size:1.2rem}
+  .logo small{display:block;font-family:Arial;font-weight:400;font-size:.66rem;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  nav.links{display:flex;gap:30px;align-items:center}
+  nav.links a{font-size:.95rem;color:var(--ink);font-weight:500}
+  nav.links a:hover{color:var(--ember)}
+  .callbtn{background:var(--ember);color:#fff;padding:11px 20px;border-radius:8px;font-weight:700;
+    box-shadow:0 4px 14px rgba(232,100,60,.35);transition:transform .15s}
+  .callbtn:hover{transform:translateY(-2px);background:var(--ember-dk)}
+  .burger{display:none;font-size:1.6rem;background:none;border:0;cursor:pointer;color:var(--ink)}
+
+  /* ---- hero ---- */
+  .hero{position:relative;background:
+      radial-gradient(1100px 500px at 78% -10%,rgba(43,107,143,.18),transparent),
+      linear-gradient(180deg,var(--frost),#fff);
+    overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;
+    align-items:center;padding:78px 24px 90px}
+  .eyebrow{display:inline-block;font-family:Arial;font-size:.78rem;font-weight:700;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--steel);margin-bottom:18px}
+  .hero h1{font-size:3.35rem;margin-bottom:20px}
+  .hero h1 em{color:var(--ember);font-style:normal}
+  .hero p.lead{font-size:1.18rem;color:var(--muted);max-width:34ch;margin-bottom:30px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .btn-primary{background:var(--ember);color:#fff;padding:15px 28px;border-radius:9px;
+    font-weight:700;font-size:1.02rem;box-shadow:0 6px 20px rgba(232,100,60,.35);transition:transform .15s}
+  .btn-primary:hover{transform:translateY(-2px);background:var(--ember-dk)}
+  .btn-ghost{padding:15px 24px;border:1.5px solid var(--steel);color:var(--steel);
+    border-radius:9px;font-weight:600;transition:background .15s}
+  .btn-ghost:hover{background:var(--steel);color:#fff}
+  .trust-row{margin-top:34px;display:flex;gap:26px;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
+  .trust-row b{color:var(--ink)}
+
+  /* thermostat dial — the signature element */
+  .dial-card{background:#fff;border:1px solid var(--line);border-radius:20px;
+    padding:34px;box-shadow:0 24px 60px -28px rgba(16,32,43,.4);text-align:center}
+  .dial{width:210px;height:210px;margin:4px auto 18px;border-radius:50%;
+    background:conic-gradient(var(--steel) 0 38%,var(--ember) 38% 62%,var(--line) 62% 100%);
+    display:grid;place-items:center;position:relative}
+  .dial::before{content:"";position:absolute;inset:18px;background:#fff;border-radius:50%;
+    box-shadow:inset 0 2px 10px rgba(16,32,43,.12)}
+  .dial .temp{position:relative;font-family:Georgia,serif;font-size:3rem;font-weight:700;color:var(--ink)}
+  .dial .temp span{font-size:1.2rem;vertical-align:super;color:var(--muted)}
+  .dial-card .status{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--steel);font-weight:700}
+  .dial-card .sub{font-size:.92rem;color:var(--muted);margin-top:8px}
+
+  /* ---- section scaffolding ---- */
+  section{padding:84px 0}
+  .sec-head{max-width:60ch;margin-bottom:46px}
+  .sec-head .eyebrow{margin-bottom:12px}
+  .sec-head h2{font-size:2.3rem;margin-bottom:12px}
+  .sec-head p{color:var(--muted);font-size:1.05rem}
+
+  /* services */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .svc{border:1px solid var(--line);border-radius:14px;padding:28px;background:#fff;
+    transition:transform .18s,box-shadow .18s;position:relative;overflow:hidden}
+  .svc::after{content:"";position:absolute;left:0;top:0;width:100%;height:4px;
+    background:linear-gradient(90deg,var(--steel),var(--ember));transform:scaleX(0);
+    transform-origin:left;transition:transform .25s}
+  .svc:hover{transform:translateY(-5px);box-shadow:0 18px 40px -24px rgba(16,32,43,.45)}
+  .svc:hover::after{transform:scaleX(1)}
+  .svc .ic{font-size:1.7rem;margin-bottom:14px}
+  .svc h3{font-size:1.22rem;margin-bottom:8px}
+  .svc p{color:var(--muted);font-size:.96rem}
+  .svc.feature{background:var(--ink);color:#fff}
+  .svc.feature p{color:#b9c6cf}
+  .svc.feature .tag{display:inline-block;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;
+    background:var(--ember);color:#fff;padding:3px 9px;border-radius:20px;margin-bottom:12px;font-weight:700}
+
+  /* why band */
+  .why{background:var(--ink);color:#e7eef2}
+  .why .sec-head h2{color:#fff}
+  .why .sec-head p{color:#aebcc6}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .why-item{padding:24px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:rgba(255,255,255,.03)}
+  .why-item .n{font-family:Georgia,serif;font-size:2rem;color:var(--ember);font-weight:700;margin-bottom:6px}
+  .why-item h3{font-size:1.05rem;margin-bottom:6px;color:#fff}
+  .why-item p{font-size:.9rem;color:#aebcc6}
+
+  /* reviews */
+  .rev-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .rev{background:var(--frost);border-left:4px solid var(--ember);border-radius:0 12px 12px 0;
+    padding:28px 30px}
+  .rev .stars{color:var(--ember);letter-spacing:3px;margin-bottom:12px}
+  .rev p{font-family:Georgia,serif;font-size:1.12rem;font-style:italic;color:var(--ink);margin-bottom:14px}
+  .rev .who{font-size:.86rem;font-weight:700;color:var(--muted);letter-spacing:.03em}
+
+  /* service area */
+  .area{background:
+      linear-gradient(135deg,rgba(43,107,143,.06),rgba(232,100,60,.06))}
+  .area-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .towns{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+  .town{background:#fff;border:1px solid var(--line);border-radius:30px;padding:9px 18px;
+    font-weight:600;font-size:.95rem}
+  .town::before{content:"📍 ";}
+
+  /* contact / CTA */
+  .cta-final{background:linear-gradient(135deg,var(--steel-dk),var(--ink));color:#fff;text-align:center}
+  .cta-final h2{font-size:2.5rem;margin-bottom:14px;color:#fff}
+  .cta-final p{color:#b9c6cf;font-size:1.1rem;max-width:48ch;margin:0 auto 30px}
+  .cta-final .big-num{font-family:Georgia,serif;font-size:2.6rem;font-weight:700;color:#fff;
+    display:inline-block;margin-top:6px}
+  .cta-final .big-num:hover{color:var(--ember)}
+
+  /* footer */
+  footer{background:#0a161e;color:#8295a1;font-size:.9rem;padding:50px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:34px;margin-bottom:34px}
+  footer h4{color:#fff;font-family:Georgia,serif;margin-bottom:14px;font-size:1.1rem}
+  footer a{display:block;color:#8295a1;padding:3px 0}
+  footer a:hover{color:var(--ember)}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem}
+
+  /* responsive */
+  @media(max-width:880px){
+    .hero .wrap{grid-template-columns:1fr;padding:54px 24px 64px}
+    .hero h1{font-size:2.5rem}
+    .dial-card{max-width:340px;margin:0 auto}
+    .svc-grid{grid-template-columns:1fr 1fr}
+    .why-grid{grid-template-columns:1fr 1fr}
+    .rev-grid,.area-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    nav.links{display:none}
+    nav.links.open{display:flex;position:absolute;top:74px;left:0;right:0;background:#fff;
+      flex-direction:column;padding:18px 24px;gap:16px;border-bottom:1px solid var(--line)}
+    .burger{display:block}
+  }
+  @media(max-width:520px){
+    .svc-grid,.why-grid,.foot-grid{grid-template-columns:1fr}
+    .hero h1{font-size:2.1rem}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+  :focus-visible{outline:3px solid var(--steel);outline-offset:2px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>🕖 Mon–Fri 7am–6pm &nbsp;•&nbsp; <strong>24/7 Emergency Service</strong></span>
+    <span class="lic">NY Licensed · EPA Certified · NATE Technicians</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo">
+      <span class="mark">❄</span>
+      <span>Summit Comfort<small>Heating &amp; Cooling</small></span>
+    </a>
+    <nav class="links" id="menu">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Service Area</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="tel:+15185550192" class="callbtn">Call (518) 555-0192</a>
+    <button class="burger" aria-label="Open menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero" style="padding:0">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Saratoga Springs &amp; surrounding towns</span>
+        <h1>When the heat dies, <em>we don't keep you waiting.</em></h1>
+        <p class="lead">Fast, honest heating and air conditioning service from a family-owned team that's kept local homes comfortable for 12 years.</p>
+        <div class="hero-cta">
+          <a href="tel:+15185550192" class="btn-primary">Call for Same-Day Service</a>
+          <a href="#contact" class="btn-ghost">Request a Free Estimate</a>
+        </div>
+        <div class="trust-row">
+          <span><b>12 years</b> serving the area</span>
+          <span><b>Same-day</b> repairs</span>
+          <span><b>Upfront</b> pricing</span>
+        </div>
+      </div>
+      <div class="dial-card">
+        <div class="dial"><div class="temp">72<span>°</span></div></div>
+        <div class="status">System Comfortable</div>
+        <div class="sub">That's the feeling we leave behind on every visit — the right temperature and a fair bill.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">What we do</span>
+        <h2>Heating &amp; cooling, done right the first time</h2>
+        <p>From a no-cool emergency in July to a planned system upgrade, we handle the full range of residential HVAC.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc feature">
+          <span class="tag">Most Requested</span>
+          <div class="ic">🌡️</div>
+          <h3>AC Repair</h3>
+          <p>Cooling out on the hottest day? We diagnose fast, quote upfront, and most repairs are done in a single visit.</p>
+        </div>
+        <div class="svc">
+          <div class="ic">🔥</div>
+          <h3>Furnace Repair</h3>
+          <p>No heat when you need it most. We get your furnace running safely and explain exactly what went wrong.</p>
+        </div>
+        <div class="svc">
+          <div class="ic">🔄</div>
+          <h3>System Replacement</h3>
+          <p>Old system on its last legs? We size and install the right unit for your home — no oversized upsell.</p>
+        </div>
+        <div class="svc">
+          <div class="ic">🛠️</div>
+          <h3>Maintenance &amp; Tune-Ups</h3>
+          <p>Seasonal tune-ups that catch small problems before they become a breakdown — and keep energy bills down.</p>
+        </div>
+        <div class="svc">
+          <div class="ic">🚨</div>
+          <h3>24/7 Emergency Service</h3>
+          <p>Heating and cooling don't fail on schedule. We answer after hours, on weekends, and on holidays.</p>
+        </div>
+        <div class="svc">
+          <div class="ic">📋</div>
+          <h3>Free Estimates</h3>
+          <p>Considering a new system? We'll assess your home and give you a clear, written quote at no charge.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why" class="why">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" style="color:var(--ember)">Why Summit</span>
+        <h2>The reasons neighbors keep calling us back</h2>
+        <p>We built this business on showing up fast and quoting honestly. That's the whole pitch.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="n">①</div><h3>Same-Day Response</h3>
+          <p>Call in the morning, comfortable by evening. We hold slots open for urgent calls.</p>
+        </div>
+        <div class="why-item">
+          <div class="n">②</div><h3>Family-Owned &amp; Local</h3>
+          <p>Dave answers the phone. You're hiring a neighbor, not a national call center.</p>
+        </div>
+        <div class="why-item">
+          <div class="n">③</div><h3>Upfront Pricing</h3>
+          <p>You approve the price before we start. The number we quote is the number you pay.</p>
+        </div>
+        <div class="why-item">
+          <div class="n">④</div><h3>Satisfaction Guaranteed</h3>
+          <p>Certified NATE technicians and a guarantee that the job's done right.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">In their words</span>
+        <h2>What local homeowners say</h2>
+      </div>
+      <div class="rev-grid">
+        <div class="rev">
+          <div class="stars">★★★★★</div>
+          <p>"Dave came out the same day when our AC died in a heat wave — fixed it in an hour and the price was exactly what he quoted."</p>
+          <div class="who">— Karen M., Saratoga Springs</div>
+        </div>
+        <div class="rev">
+          <div class="stars">★★★★★</div>
+          <p>"Honest, on time, and no upselling. We switched our whole family over to Summit after one visit."</p>
+          <div class="who">— The Petersons, Clifton Park</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section id="area" class="area">
+    <div class="wrap area-grid">
+      <div>
+        <span class="eyebrow">Where we work</span>
+        <h2 style="font-size:2.1rem;margin:12px 0">Proudly serving Saratoga County</h2>
+        <p style="color:var(--muted)">If you're in or around these towns, we're a short drive away — and we know the homes and systems common to the area.</p>
+        <div class="towns">
+          <span class="town">Saratoga Springs</span>
+          <span class="town">Ballston Spa</span>
+          <span class="town">Malta</span>
+          <span class="town">Wilton</span>
+          <span class="town">Clifton Park</span>
+        </div>
+      </div>
+      <div class="dial-card" style="text-align:left">
+        <h3 style="font-size:1.3rem;margin-bottom:10px">Not sure if we cover you?</h3>
+        <p style="color:var(--muted);margin-bottom:18px">Give us a quick call — if we don't serve your area, we'll point you to someone trustworthy who does.</p>
+        <a href="tel:+15185550192" class="btn-primary" style="display:inline-block">Call (518) 555-0192</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA / CONTACT -->
+  <section id="contact" class="cta-final">
+    <div class="wrap">
+      <span class="eyebrow" style="color:var(--ember)">Get comfortable again</span>
+      <h2>Ready when you are</h2>
+      <p>Call now for same-day service, or request a free estimate and we'll get right back to you. No pressure, no surprise charges.</p>
+      <div>
+        <a href="tel:+15185550192" class="big-num">📞 (518) 555-0192</a>
+      </div>
+      <p style="margin-top:24px;font-size:.95rem">Mon–Fri 7am–6pm &nbsp;•&nbsp; 24/7 for emergencies</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Summit Comfort Heating &amp; Cooling</h4>
+        <p style="max-width:40ch">Family-owned HVAC service keeping Saratoga County homes comfortable since 2014. Fast response, fair prices, certified technicians.</p>
+        <p style="margin-top:14px">NY State Licensed · EPA Certified · Insured &amp; Bonded</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="#services">AC Repair</a>
+        <a href="#services">Furnace Repair</a>
+        <a href="#services">System Replacement</a>
+        <a href="#services">Maintenance</a>
+        <a href="#services">Emergency Service</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="tel:+15185550192">(518) 555-0192</a>
+        <a href="#area">Saratoga Springs, NY</a>
+        <a href="#contact">Free Estimates</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Summit Comfort Heating &amp; Cooling. All rights reserved.</span>
+      <span>Site by Web Builder Co. · <em>Mock demo</em></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // close mobile menu on link tap
+  document.querySelectorAll('#menu a').forEach(a=>
+    a.addEventListener('click',()=>document.getElementById('menu').classList.remove('open')));
+</script>
+</body>
+</html>
